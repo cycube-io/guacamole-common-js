@@ -1,6 +1,6 @@
 {
   "name": "@cycube/guacamole-common-js",
-  "version": "1.6.0",
+  "version": "1.6.0-p1",
   "description": "The Guacamole javascript client",
   "type": "module",
   "main": "dist/cjs/guacamole-common.js",
@@ -8,9 +8,11 @@
   "exports": {
     ".": {
       "import": "./dist/esm/guacamole-common.js",
-      "require": "./dist/cjs/guacamole-common.js"
+      "require": "./dist/cjs/guacamole-common.js",
+      "types": "./guacamole.d.ts"
     }
   },
+  "types": "guacamole.d.ts",
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm:concat": "shx cat guacamole-common-js/src/main/webapp/modules/*.js > dist/esm/guacamole-common.js",
@@ -22,7 +24,7 @@
     "build:cjs:minify": "minify dist/cjs/guacamole-common.js > dist/cjs/guacamole-common.min.js",
     "build:cjs": "npm run build:cjs:concat && npm run build:cjs:append && npm run build:cjs:minify",
     "prepublishOnly": "npm run build",
-    "publish": "npm run build && npm publish --access public"
+    "publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,10 @@
   },
   "files": [
     "dist",
+    "types",
+    "guacamole.d.ts",
+    "tsconfig.json",
+    "LICENSE",
     "README.md"
   ],
   "keywords": [
