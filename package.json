@@ -1,6 +1,6 @@
 {
-  "name": "guacamole-common-js",
-  "version": "1.5.0",
+  "name": "@cycube/guacamole-common-js",
+  "version": "1.6.0",
   "description": "The Guacamole javascript client",
   "type": "module",
   "main": "dist/cjs/guacamole-common.js",
@@ -21,11 +21,12 @@
     "build:cjs:append": "shx echo \"module.exports = Guacamole;\" >> dist/cjs/guacamole-common.js",
     "build:cjs:minify": "minify dist/cjs/guacamole-common.js > dist/cjs/guacamole-common.min.js",
     "build:cjs": "npm run build:cjs:concat && npm run build:cjs:append && npm run build:cjs:minify",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish": "npm run build && npm publish --access public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/padarom/guacamole-common-js.git"
+    "url": "git+https://github.com/cycube-io/guacamole-common-js.git"
   },
   "files": [
     "dist",
@@ -43,12 +44,15 @@
     "ssh",
     "telnet"
   ],
-  "author": "Christopher Mühl <christopher@muehl.dev>",
+  "author": "Oren Chapo <oren+npm@cycube.io>",
+  "contributors": [
+    "Christopher Mühl <christopher@muehl.dev>"
+  ],
   "license": "Apache 2.0",
   "bugs": {
     "url": "https://issues.apache.org/jira/browse/GUACAMOLE/"
   },
-  "homepage": "https://github.com/padarom/guacamole-common-js#readme",
+  "homepage": "https://github.com/cycube-io/guacamole-common-js#readme",
   "devDependencies": {
     "minify": "^9.2.0",
     "shx": "^0.4.0"
